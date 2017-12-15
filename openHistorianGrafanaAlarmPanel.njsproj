@@ -2,8 +2,8 @@
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">14.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
-    <Name>GrafanaPluginTemplate</Name>
-    <RootNamespace>GrafanaPluginTemplate</RootNamespace>
+    <Name>openHistorianGrafanaAlarmPanel</Name>
+    <RootNamespace>openHistorianGrafanaAlarmPanel</RootNamespace>
   </PropertyGroup>
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -46,7 +46,6 @@
     <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
   <ItemGroup>
-    <Content Include="controllers\grafanaPluginTemplate_ctrl.js.map" />
     <Content Include="js\constants.js.map" />
     <Content Include="package.json" />
     <Content Include="partials\module.html" />
@@ -56,15 +55,13 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="controllers\grafanaPluginTemplate_ctrl.js" />
     <Compile Include="Gruntfile.js">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="js\constants.js" />
   </ItemGroup>
   <ItemGroup>
-    <TypeScriptCompile Include="controllers\grafanaPluginTemplate_ctrl.d.ts" />
-    <TypeScriptCompile Include="controllers\grafanaPluginTemplate_ctrl.ts" />
+    <TypeScriptCompile Include="controllers\openHistorianGrafanaAlarmPanel_ctrl.ts" />
     <TypeScriptCompile Include="js\constants.d.ts" />
     <TypeScriptCompile Include="js\constants.ts" />
     <TypeScriptCompile Include="module.ts">

@@ -1,7 +1,7 @@
-﻿{
+{
   "type": "panel",
-  "name": "Grafana Plugin Template",
-  "id": "grafana-plugin-template",
+  "name": "Open Historian Alarm Panel",
+  "id": "openhistorian-alarm-panel",
 
   "info": {
     "description": "Plugin Template for grafana",

@@ -1,5 +1,5 @@
 {
-  "name": "grafana-plugin-template",
+  "name": "openhistorian-alarm-panel",
   "version": "0.0.0",
   "description": "Grafana plugin typescript template.",
   "scripts": {
@@ -7,7 +7,9 @@
   },
   "author": "Grid Protection Alliance",
   "license": "MIT",
-  "dependencies": {},
+  "dependencies": {
+    "react": "^16.2.0"
+  },
   "devDependencies": {
     "grafana-sdk-mocks": "github:grafana/grafana-sdk-mocks",
     "grunt": "1.0.1",
@@ -17,5 +19,4 @@
     "load-grunt-tasks": "3.5.2",
     "typescript": "2.6.2"
   }
-
 }

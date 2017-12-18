@@ -25,12 +25,13 @@
 ///<reference path="../node_modules/grafana-sdk-mocks/app/headers/common.d.ts" />
 
 import { MetricsPanelCtrl } from 'app/plugins/sdk';
+import _ from 'lodash';
 
 //import { varName } from '../js/constants'   // import constants from constant file using this format
 
 export class OpenHistorianGrafanaAlarmPanel extends MetricsPanelCtrl{
     static templateUrl:string = 'partials/module.html';
-
+    _: any;
     constructor($scope, $injector, private $rootScope) {
         super($scope, $injector);
         this.events.on('init-edit-mode', this.onInitEditMode.bind(this));
@@ -72,11 +73,19 @@ export class OpenHistorianGrafanaAlarmPanel extends MetricsPanelCtrl{
     }
 
     onDataRecieved(data) {
+        this.datasource.getAlarmStates().then(data => {
+            this.$scope.data = data.data;
+            this.$scope.colors = _.uniqBy(data.data, 'State');
+        })
         //console.log('data-recieved');
     }
 
     onDataError(msg) {
         //console.log('data-error');
+    }
+
+    handleClick(d) {
+        console.log(d);
     }
     // #endregion
 

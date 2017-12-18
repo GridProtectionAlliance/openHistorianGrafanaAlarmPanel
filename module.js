@@ -22,6 +22,6 @@
 //******************************************************************************************************
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const openHistorianGrafanaAlarmPanel_ctrl_1 = require("./controllers/openHistorianGrafanaAlarmPanel_ctrl");
+var openHistorianGrafanaAlarmPanel_ctrl_1 = require("./controllers/openHistorianGrafanaAlarmPanel_ctrl");
 exports.PanelCtrl = openHistorianGrafanaAlarmPanel_ctrl_1.OpenHistorianGrafanaAlarmPanel;
 //# sourceMappingURL=module.js.map

@@ -113,7 +113,7 @@ System.register(["app/plugins/sdk", "lodash"], function (exports_1, context_1) {
                     //console.log('data-error');
                 };
                 OpenHistorianGrafanaAlarmPanel.prototype.handleClick = function (d) {
-                    console.log(d);
+                    window.open('../GrafanaDeviceStatus.cshtml?ID=' + d.ID);
                 };
                 return OpenHistorianGrafanaAlarmPanel;
             }(sdk_1.MetricsPanelCtrl));

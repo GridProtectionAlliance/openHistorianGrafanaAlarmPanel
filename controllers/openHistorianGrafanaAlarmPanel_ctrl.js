@@ -65,8 +65,7 @@ System.register(["app/plugins/sdk", "lodash"], function (exports_1, context_1) {
             //       Generated original version of source code.
             //
             //******************************************************************************************************
-            //import { varName } from '../js/constants'   // import constants from constant file using this format
-            OpenHistorianGrafanaAlarmPanel = (function (_super) {
+            OpenHistorianGrafanaAlarmPanel = /** @class */ (function (_super) {
                 __extends(OpenHistorianGrafanaAlarmPanel, _super);
                 function OpenHistorianGrafanaAlarmPanel($scope, $injector, $rootScope) {
                     var _this = _super.call(this, $scope, $injector) || this;
@@ -79,11 +78,12 @@ System.register(["app/plugins/sdk", "lodash"], function (exports_1, context_1) {
                     //this.events.on('data-snapshot-load', console.log('data-snapshot-load'));
                     _this.events.on('data-error', _this.onDataError.bind(_this));
                     _this.events.on('refresh', _this.onRefresh.bind(_this));
+                    _this.panel.link = (_this.panel.link != undefined ? _this.panel.link : '..');
                     return _this;
                 }
                 // #region Events from Graphana Handlers
                 OpenHistorianGrafanaAlarmPanel.prototype.onInitEditMode = function () {
-                    //console.log('init-edit-mode');
+                    this.addEditorTab('Options', 'public/plugins/openhistorian-alarm-panel/partials/editor.html', 2);
                 };
                 OpenHistorianGrafanaAlarmPanel.prototype.onPanelTeardown = function () {
                     //console.log('panel-teardown');
@@ -106,6 +106,9 @@ System.register(["app/plugins/sdk", "lodash"], function (exports_1, context_1) {
                     this.datasource.getAlarmStates().then(function (data) {
                         _this.$scope.data = data.data;
                         _this.$scope.colors = lodash_1.default.uniqBy(data.data, 'State');
+                        lodash_1.default.each(function (d, i) {
+                            d.Color = _this.convertHex(d.Color, 100);
+                        });
                     });
                     //console.log('data-recieved');
                 };
@@ -113,11 +116,20 @@ System.register(["app/plugins/sdk", "lodash"], function (exports_1, context_1) {
                     //console.log('data-error');
                 };
                 OpenHistorianGrafanaAlarmPanel.prototype.handleClick = function (d) {
-                    window.open('../GrafanaDeviceStatus.cshtml?ID=' + d.ID);
+                    window.open(this.panel.link + '/GrafanaDeviceStatus.cshtml?ID=' + d.ID);
                 };
+                // #endregion
+                OpenHistorianGrafanaAlarmPanel.prototype.convertHex = function (hex, opacity) {
+                    hex = hex.replace('#', '');
+                    var r = parseInt(hex.substring(0, 2), 16);
+                    var g = parseInt(hex.substring(2, 4), 16);
+                    var b = parseInt(hex.substring(4, 6), 16);
+                    var result = 'rgba(' + r + ',' + g + ',' + b + ',' + opacity / 100 + ')';
+                    return result;
+                };
+                OpenHistorianGrafanaAlarmPanel.templateUrl = 'partials/module.html';
                 return OpenHistorianGrafanaAlarmPanel;
             }(sdk_1.MetricsPanelCtrl));
-            OpenHistorianGrafanaAlarmPanel.templateUrl = 'partials/module.html';
             exports_1("OpenHistorianGrafanaAlarmPanel", OpenHistorianGrafanaAlarmPanel);
         }
     };

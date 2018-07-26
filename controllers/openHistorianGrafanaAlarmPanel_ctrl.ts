@@ -31,7 +31,6 @@ import _ from 'lodash';
 
 export class OpenHistorianGrafanaAlarmPanel extends MetricsPanelCtrl{
     static templateUrl:string = 'partials/module.html';
-    _: any;
     constructor($scope, $injector, private $rootScope) {
         super($scope, $injector);
         this.events.on('init-edit-mode', this.onInitEditMode.bind(this));
@@ -43,11 +42,13 @@ export class OpenHistorianGrafanaAlarmPanel extends MetricsPanelCtrl{
         this.events.on('data-error', this.onDataError.bind(this));
         this.events.on('refresh', this.onRefresh.bind(this));
 
+        this.panel.link = (this.panel.link != undefined ? this.panel.link : '..');
+
     }
 
     // #region Events from Graphana Handlers
     onInitEditMode() {
-        //console.log('init-edit-mode');
+        this.addEditorTab('Options', 'public/plugins/openhistorian-alarm-panel/partials/editor.html', 2);
     }
 
     onPanelTeardown() {
@@ -85,7 +86,7 @@ export class OpenHistorianGrafanaAlarmPanel extends MetricsPanelCtrl{
     }
 
     handleClick(d) {
-        window.open('../GrafanaDeviceStatus.cshtml?ID=' + d.ID)
+        window.open( this.panel.link + '/GrafanaDeviceStatus.cshtml?ID=' + d.ID)
     }
     // #endregion
 

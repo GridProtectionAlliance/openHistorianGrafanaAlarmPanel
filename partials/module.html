@@ -16,10 +16,10 @@
         }
     </style>
     <ul class="legend">
-        <li ng-repeat="c in colors"><span style='background:{{c.Color}}'></span>&nbsp;&nbsp;&nbsp;{{c.State}}</li>
+        <li ng-repeat="c in colors"><span ng-style="{'background': c.Color}"></span>&nbsp;&nbsp;&nbsp;{{c.State}}</li>
     </ul>
     <br />
-    <div ng-repeat="d in data" class="col-sm-1" style="background-color:{{d.Color}}; height: 75px; width: 120px; padding: 3px; margin: 5px; text-align: center; cursor: pointer" ng-click="ctrl.handleClick(d)">
+    <div ng-repeat="d in data" class="col-sm-1" ng-style="{'background-color': d.Color, 'height': '75px', 'width': '120px', 'padding': '3px', 'margin': '5px', 'text-align': 'center', 'cursor':'pointer'}" ng-click="ctrl.handleClick(d)">
         <span style="font-size: medium">{{d.Name}}</span>
         <br />
         <span style="font-size: x-large">{{d.DisplayData}}</span>

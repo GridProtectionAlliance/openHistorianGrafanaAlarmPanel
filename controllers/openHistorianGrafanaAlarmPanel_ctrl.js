@@ -106,9 +106,6 @@ System.register(["app/plugins/sdk", "lodash"], function (exports_1, context_1) {
                     this.datasource.getAlarmStates().then(function (data) {
                         _this.$scope.data = data.data;
                         _this.$scope.colors = lodash_1.default.uniqBy(data.data, 'State');
-                        lodash_1.default.each(function (d, i) {
-                            d.Color = _this.convertHex(d.Color, 100);
-                        });
                     });
                     //console.log('data-recieved');
                 };
@@ -116,16 +113,7 @@ System.register(["app/plugins/sdk", "lodash"], function (exports_1, context_1) {
                     //console.log('data-error');
                 };
                 OpenHistorianGrafanaAlarmPanel.prototype.handleClick = function (d) {
-                    window.open(this.panel.link + '/GrafanaDeviceStatus.cshtml?ID=' + d.ID);
-                };
-                // #endregion
-                OpenHistorianGrafanaAlarmPanel.prototype.convertHex = function (hex, opacity) {
-                    hex = hex.replace('#', '');
-                    var r = parseInt(hex.substring(0, 2), 16);
-                    var g = parseInt(hex.substring(2, 4), 16);
-                    var b = parseInt(hex.substring(4, 6), 16);
-                    var result = 'rgba(' + r + ',' + g + ',' + b + ',' + opacity / 100 + ')';
-                    return result;
+                    window.open(this.panel.link + '/DeviceStatus.cshtml?ID=' + d.ID);
                 };
                 OpenHistorianGrafanaAlarmPanel.templateUrl = 'partials/module.html';
                 return OpenHistorianGrafanaAlarmPanel;

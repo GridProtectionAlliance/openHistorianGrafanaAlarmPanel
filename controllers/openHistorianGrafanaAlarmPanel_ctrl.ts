@@ -86,7 +86,7 @@ export class OpenHistorianGrafanaAlarmPanel extends MetricsPanelCtrl{
     }
 
     handleClick(d) {
-        window.open( this.panel.link + '/GrafanaDeviceStatus.cshtml?ID=' + d.ID)
+        window.open( this.panel.link + '/DeviceStatus.cshtml?ID=' + d.ID)
     }
     // #endregion
 

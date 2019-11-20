@@ -1,33 +1,19 @@
-﻿# GrafanaPluginTemplate
+﻿# openHistorian Device Alarm Panel
 
-This plugin is a template to help you get started with writing a plugin for Grafana in TypeScript.
+This plugin is a Grana panel to show the status of all PMUs connected to the openHistorian.
+For this Panel to work the openHistorian Data Source plugin has to be installed and set-up and the openHistorian has to be installed.
+### Overview
 
-This template plugin includes:
+Each connected PMU is displayed as a box in this panel. The color oe each Box indicates the status of the PMU. The following states are defined:
+- Good State (Green): This is the simplest state to describe, it simply means that no alarm state is active.
+- Alarm State (Red): This state means no data has been received over a configured period.
+- Not Available State (Yellow): This state represents a “warning” state meaning data is not currently available (or old), but it has not reached the configured alarm period, i.e., “on its way to alarm state if nothing changes”. The alarm state time period is reached much more quickly than the alarm state. This is important since a device may simply be in a restarting state, or the PDC system may be failing over during patching. The configuration values for reaching not available are defined with lead and lag time tolerances. The Not Available state takes precedence over Bad Data.
+- Bad Data State (Blue): This state means that one of devices in the connection group is consistently reporting bad data, i.e., the device is self-reporting a bad data flag – the openHistorian is not currently trying to deduce data quality for the purposes of alarming. In the case of IEEE C37.118, this means that bit 15 of the status flags has been set. For other protocols, e.g., IEEE 1344, this will be bit 14. The Bad Data state takes precedence over Bad Time.
+- Bad Time State (Purple): This state means that one of the devices in the connection group is consistently report bad time, i.e., the device is self-reporting a bad time flag – or, the openPDC finds that the measurement time is consistently outside of configured time tolerances as compared to the local system clock– this catches devices with a floating clock, as can often happen with daylight savings time transitions. Note that for bad time states triggered solely on the basis of old timestamps will be superseded by Not Available state once data has been detected to be consistently stale. In the case of IEEE C37.118, the bad time flag is bit 13 of the status flags. Like in the case of Bad Data, the actual bit will be different for other protocols.
+- Out of Service State: This state simply represents that a device has been disabled through configuration and is currently not reporting data.
+- Acknowledged State: When a device is in any alarm state, the dashboard user can change the alarm to “acknowledged” to mean that the alarm is known and being worked. If the alarm state consistently transitions to “Good” for a configured period, the acknowledged state will be automatically cleared – otherwise the acknowledged state will remain until manually reset.
 
-- A basic Grunt script to build the plugin. Builds TypeScript and copies the required files to the dist directory.
-
-### Getting Started
-
-1. Make a subdirectory named after your plugin in the `data/plugins` subdirectory in your Grafana instance. It does not really matter what the directory name is. When the plugin is installed via the grafana cli, it will create a directory named after the plugin id field in the plugin.json file.
-
-1. Copy the files in this project into your new plugin subdirectory.
-2. `npm install` grunt-cli, grunt-contrib-clean, grunt-typescript, and grunt-contrib-watch
-
-`grunt watch` will build the TypeScript files and copy everything to the dist directory automatically when a file changes. This is useful for when working on the code. 
-
-Changes should be made in the `src` directory. The build task transpiles the TypeScript code into JavaScript and copies it to the `dist` directory. Grafana will load the JavaScript from the `dist` directory and ignore the `src` directory.
-
-### Preparing To Publish Your Plugin On Grafana.com
-
-- The plugin id field in the plugin.json file should be unique and should follow the plugin naming convention: `yourorgname-pluginname-datasource`.
-- If the plugin supports annotations, then change the annotations field in the plugin.json file to `true`.
-- Image links in the plugin are relative to the plugin.json file.
-- Everywhere a class is named ChangeMyName, change it your plugin name.
-- Commit the `dist` directory to Git. Grafana cannot build plugins when loading them and will load the JavaScript in the dist directory if it exists.
-- The README.md should not contain HTML, only Markdown.
-- If the README.md file contains links to images, they should be the GitHub link to the image. For example: `https://raw.githubusercontent.com/yourorg/pluginname-datasource/master/src/img/image_name.png`
-
-### Grafana SDK Mocks
+### Settings
 
 The [Grafana SDK Mocks](https://github.com/grafana/grafana-sdk-mocks) package contains mocks for the Grafana classes that a plugin needs to build in TypeScript. It also contains some of the commonly used util classes that are used in plugins. This allows you to write unit tests for your plugin.
 

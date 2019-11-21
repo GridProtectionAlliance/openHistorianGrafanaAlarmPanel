@@ -1,9 +1,12 @@
 const path = require('path');
 const webpack = require('webpack');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const ngAnnotatePlugin = require('ng-annotate-webpack-plugin');
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 
-module.exports = {
+const conf = {
   target: 'node',
   context: __dirname + "/src",
   entry: './module.ts',
@@ -54,3 +57,25 @@ module.exports = {
     ]
   }
 }
+
+module.exports = (env, argv) => {
+if (argv.mode === 'development') {
+		return conf;
+	  }
+
+	  if (argv.mode === 'production') {
+	  
+	  conf.output.path = path.join(__dirname, '../Build/Output/Release/dist');
+	conf.plugins[0] = new CleanWebpackPlugin('../Build/Output/Release/dist', { allowExternal: true });
+	conf.plugins.push(new ngAnnotatePlugin());
+	conf.plugins.push(
+	  new UglifyJSPlugin({
+		sourceMap: true,
+	  })
+	);
+
+    return conf;
+  }
+
+  return conf;
+};

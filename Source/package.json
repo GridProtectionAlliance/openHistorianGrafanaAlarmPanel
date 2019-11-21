@@ -16,12 +16,16 @@
     "babel-loader": "^7.1.2",
     "babel-preset-env": "^1.6.0",
     "copy-webpack-plugin": "^4.0.1",
+    "ng-annotate-webpack-plugin": "^0.3.0",
+    "uglifyjs-webpack-plugin": "^2.1.1",
+    "clean-webpack-plugin": "^1.0.0",
     "loader-utils": "^1.1.0",
-    "webpack": "^3.6.0",
+    "webpack": "^4.26.0",
     "ts-loader": "^2.3.7",
     "typescript": "^2.4.2",
     "grafana-sdk-mocks": "github:grafana/grafana-sdk-mocks",
-    "@types/lodash": "4.14.118"
+    "@types/lodash": "4.14.118",
+    "webpack-cli": "^3.1.2"
   },
   "dependencies": {
     "lodash": "^4.17.11"

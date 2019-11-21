@@ -22,10 +22,10 @@
 //******************************************************************************************************
 
 
-///<reference path="../node_modules/grafana-sdk-mocks/app/headers/common.d.ts" />
+//<reference path="../node_modules/grafana-sdk-mocks/app/headers/common.d.ts" />
 
-import { MetricsPanelCtrl } from 'app/plugins/sdk';
-import _ from 'lodash';
+import { MetricsPanelCtrl } from 'grafana/app/plugins/sdk';
+import * as _ from "lodash";
 
 //import { varName } from '../js/constants'   // import constants from constant file using this format
 
@@ -75,6 +75,7 @@ export class OpenHistorianGrafanaAlarmPanel extends MetricsPanelCtrl{
 
     onDataRecieved(data) {
         this.datasource.getAlarmStates().then(data => {
+			//console.log(data);
             this.$scope.data = data.data;
             this.$scope.colors = _.uniqBy(data.data, 'State');
         })

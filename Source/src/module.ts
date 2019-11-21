@@ -21,7 +21,7 @@
 //
 //******************************************************************************************************
 
-import { OpenHistorianGrafanaAlarmPanel } from './controllers/openHistorianGrafanaAlarmPanel_ctrl';
+import { OpenHistorianGrafanaAlarmPanel } from './openHistorianGrafanaAlarmPanel_ctrl';
 
 export {
     OpenHistorianGrafanaAlarmPanel as PanelCtrl

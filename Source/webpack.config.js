@@ -9,7 +9,9 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const conf = {
   target: 'node',
   context: __dirname + "/src",
-  entry: './module.ts',
+  entry: {
+    module: './module.ts',
+  },
   output: {
 	filename: '[name].js',
     path: path.join(__dirname, '../Build/Output/Debug/dist'),

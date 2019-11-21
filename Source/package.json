@@ -3,8 +3,8 @@
   "author": "Grid Protection Alliance",
   "license": "MIT",
   "version": "1.0.0",
-  "description": "Alarm pabnel for device status from oepnHistorian",
-  "main": "dist/module.js",
+  "description": "Alarm panel for device status from oepnHistorian",
+  "main": "src/module.js",
   "scripts": {
     "build": "webpack"
   },

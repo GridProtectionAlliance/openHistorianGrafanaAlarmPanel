@@ -34,6 +34,7 @@ SET ProjectName=openHistorian Grafana Alarm Panel
 SET PluginFile=.\src\plugin.json
 SET ZipDirectory=openHistorianGrafanaAlarmPanel
 SET ZipFile=AlarmPanelBinaries.zip
+SET BinarydestFolder=N:\GrafanaPanels\Binaries
 
 IF NOT "%1" == "" (SET logFile=%1)
 
@@ -60,11 +61,14 @@ XCOPY %buildfolder% ..\%ZipDirectory% /E /Y >> %logFile%
 IF Exist (..\%ZipFile%) (del "..\%ZipFile%" >> %logFile% )
 Powershell -COMMAND Compress-Archive -Path ..\%ZipDirectory% -DestinationPath ..\%ZipFile% >> %logFile%
 
-RMDIR /S /Q ..\%ZipDirectory%\
 
 set /p versionContent=< %VersionTrackFile%
 
 XCOPY ..\* %destFolder% /E /Y /U >> %logFile%
+XCOPY ..\%ZipDirectory% %BinaryDestFolder%\%ZipDirectory% /E /Y /U >> %logFile%
+
+RMDIR /S /Q ..\%ZipDirectory%\
+
 
 CALL git add ../../* >> %logFile%
 CALL git commit -m "%ProjectName%: Version change for build %versionContent%" >> %logFile%

@@ -43,7 +43,7 @@ export class OpenHistorianGrafanaAlarmPanel extends MetricsPanelCtrl{
         this.events.on('refresh', this.onRefresh.bind(this));
 
         this.panel.link = (this.panel.link != undefined ? this.panel.link : '..');
-
+		this.panel.filter = (this.panel.filter != undefined ? this.panel.filter : '');
     }
 
     // #region Events from Graphana Handlers
@@ -76,8 +76,19 @@ export class OpenHistorianGrafanaAlarmPanel extends MetricsPanelCtrl{
     onDataRecieved(data) {
         this.datasource.getAlarmStates().then(data => {
 			//console.log(data);
-            this.$scope.data = data.data;
-            this.$scope.colors = _.uniqBy(data.data, 'State');
+			let filterdata = data.data;
+			if (this.panel.filter !== "") {
+				let filtereddata: any[] = [];
+				let re = new RegExp(this.panel.filter);
+				filterdata.forEach(item => {
+				if (re.test(item.Name))	{
+					filtereddata.push(item);
+				}
+				});
+				filterdata = filtereddata;
+			}
+            this.$scope.data = filterdata;
+            this.$scope.colors = _.uniqBy(filterdata, 'State');
         })
         //console.log('data-recieved');
     }

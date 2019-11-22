@@ -33,10 +33,12 @@ const conf = {
     }
   ],
   plugins: [
+	new CleanWebpackPlugin('../Build/Output/Debug/dist', { allowExternal: true }),
     new webpack.optimize.OccurrenceOrderPlugin(),
     new CopyWebpackPlugin([
       { from: 'plugin.json', to: '.' },
 	  { from: '../../README.md', to: '.' },
+	  { from: 'images/*', to: '.' },
 	  { from: 'partials/*', to: '.' },
     ])
   ],
@@ -45,6 +47,14 @@ const conf = {
   },
   module: {
     rules: [
+		{
+        test: /\.(png|jpg|gif|svg|ico)$/,
+        loader: 'file-loader',
+        query: {
+          outputPath: './images/',
+          name: '[name].[ext]',
+        },
+      },
       {
         test: /\.tsx?$/, 
         loaders: [
@@ -57,7 +67,12 @@ const conf = {
         exclude: /node_modules/,
       }
     ]
-  }
+  },
+  
+  optimization: {
+		// We no not want to minimize our code.
+		minimize: false
+	}
 }
 
 module.exports = (env, argv) => {
@@ -68,13 +83,13 @@ if (argv.mode === 'development') {
 	  if (argv.mode === 'production') {
 	  
 	  conf.output.path = path.join(__dirname, '../Build/Output/Release/dist');
-	conf.plugins[0] = new CleanWebpackPlugin('../Build/Output/Release/dist', { allowExternal: true });
+	  conf.plugins[0] = new CleanWebpackPlugin('../Build/Output/Release/dist', { allowExternal: true });
 	conf.plugins.push(new ngAnnotatePlugin());
-	conf.plugins.push(
-	  new UglifyJSPlugin({
-		sourceMap: true,
-	  })
-	);
+	//conf.plugins.push(
+	 //new UglifyJSPlugin({
+		//sourceMap: true,
+	 //})
+	//);
 
     return conf;
   }

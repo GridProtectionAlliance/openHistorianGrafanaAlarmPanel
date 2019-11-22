@@ -1,14 +1,14 @@
 { 
 "type":"panel", 
-"name":"OpenHistorian Alarm Panel", 
+"name":"OpenHistorianAlarm Panel",  
 "id":"openhistorian-alarm-panel", 
 "info":{ 
-"description":"PluginTemplate for grafana", 
+"description":"PluginTemplatefor grafana",  
 "author":{ 
-"name":"GridProtection Alliance", 
+"name":"GridProtectionAlliance",  
 "url":"http//www.gridprotectionalliance.org" 
 }, 
-"keywords":["template", "panel" ], 
+"keywords":["template","panel" ],  
 "logos":{ 
 "small":"", 
 "large":"" 
@@ -21,7 +21,7 @@
 ], 
 "screenshots":[ 
 ], 
-"version":"1.1.0", 
+"version":"1.2.0", 
 "updated": "2019-11-22" 
 }, 
 "dependencies":{ 

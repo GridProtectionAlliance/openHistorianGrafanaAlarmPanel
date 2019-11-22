@@ -3,21 +3,21 @@
 "name":"OpenHistorianAlarm Panel",  
 "id":"openhistorian-alarm-panel", 
 "info":{ 
-"description":"PluginTemplatefor grafana",  
+"description":"Panel for openHistorian Device Status Alarms",  
 "author":{ 
 "name":"GridProtectionAlliance",  
 "url":"http//www.gridprotectionalliance.org" 
 }, 
-"keywords":["template","panel" ],  
-"logos":{ 
-"small":"", 
-"large":"" 
-}, 
-"links":[ 
-{ 
-"name":"Projectsite", 
-"url":"https//github.com/grafana/piechart-panel" 
-} 
+"keywords":["openHistorian","panel", "DeviceStatus" ],
+  "logos": {
+    "small": "images/gpa-lock.png",
+    "large": "images/gpa-lock.png"
+  }, 
+"links":[
+  {
+    "name": "Projectsite",
+    "url": "https://github.com/GridProtectionAlliance/openHistorianGrafanaAlarmPanel"
+  } 
 ], 
 "screenshots":[ 
 ], 

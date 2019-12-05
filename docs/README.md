@@ -1,11 +1,12 @@
-﻿# openHistorian Device Alarm Panel
+﻿# Overview
 
 This plugin is a Grana panel to show the status of all PMUs connected to the openHistorian.
 For this Panel to work the openHistorian Data Source plugin has to be installed and set-up and the openHistorian has to be installed.
 
-## Overview
 
-![GitHub Logo](../Source/src/images/Example.png)
+![GitHub Logo](./Source/src/images/Example.png)
+# Description
+
 
 Each connected PMU is displayed as a box in this panel. The color of each Box indicates the status of the PMU. The following states are defined:
 - Good State (Green): This is the simplest state to describe, it simply means that no alarm state is active.
@@ -21,7 +22,7 @@ Each connected PMU is displayed as a box in this panel. The color of each Box in
 
 A full description of all available Settings can be found [here](./Settings.md) 
 
-### Setup
+## Setup
 
-A general guide to set up the openPDC and Grafana data source plugin can be found [here](./SetUp.md)
+A general guide to set up the openPDC and Grafana data source plugin can be found [here](./Setup.md)
 

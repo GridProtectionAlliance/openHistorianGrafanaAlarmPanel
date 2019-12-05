@@ -10,8 +10,8 @@
 }, 
 "keywords":["openHistorian","panel", "DeviceStatus" ],
   "logos": {
-    "small": "images/gpa-lock.png",
-    "large": "images/gpa-lock.png"
+    "small": "images/PAPanel.png",
+    "large": "images/PAPanel.png"
   }, 
 "links":[
   {

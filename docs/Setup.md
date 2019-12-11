@@ -1,5 +1,7 @@
-﻿<img align="left" src="./img/GPA.png" alt="Grid Protection Alliance">
-<img align="right" src="./img/PAPanel.png" alt="Phasor Alarm Panel">
+﻿<div style="height:100px;">
+<img align="left"  style="height:100px" src="./img/GPA.png" alt="Grid Protection Alliance">
+<img align="right" style="height:100px" src="./img/PAPanel.png" alt="Phasor Alarm Panel">
+</div>
 # Setup
 
 This describes the setup process to get the Grafan Panel to display the status of all devices connected to the openHistorian. If using the openPDC the setup process is very similar.

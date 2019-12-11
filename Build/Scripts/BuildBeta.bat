@@ -53,9 +53,6 @@ copy NUL "%logFile%"
 CD "..\..\Source\" 
 ECHO Changed Path To %CD% >> %LogPath%%logFile%
 
-ECHO Update Documentation >> %LogPath%%logFile%
-XCOPY %IMGFolder% %DocIMGFolder% /E /Y /U >> %logFile%
-
 CALL ../Build/Scripts/GrafanaVersioning.bat %LogPath%%logFile% %PluginFile% %LogPath%%VersionTrackFile%
 
 ECHO Install NPM >> %LogPath%%logFile%

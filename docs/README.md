@@ -1,4 +1,6 @@
-﻿# Overview
+﻿<img align="left" src="./img/GPA.png" alt="Grid Protection Alliance">
+<img align="right" src="./img/PAPanel.png" alt="Phasor Alarm Panel">
+# Overview
 
 This plugin is a Grana panel to show the status of all PMUs connected to the openHistorian.
 For this Panel to work the openHistorian Data Source plugin has to be installed and set-up and the openHistorian has to be installed.

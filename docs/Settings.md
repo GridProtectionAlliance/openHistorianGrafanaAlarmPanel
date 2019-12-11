@@ -1,4 +1,6 @@
-﻿# Settings
+﻿<img align="left" src="./img/GPA.png" alt="Grid Protection Alliance">
+<img align="right" src="./img/PAPanel.png" alt="Phasor Alarm Panel">
+# Settings
 
 ### Grafana Panel Settings
 The following Settings are available in the Grafana plugin:

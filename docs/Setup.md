@@ -5,7 +5,7 @@
 # Setup
 
 This describes the setup process to get the Grafan Panel to display the status of all devices connected to the openHistorian. If using the openPDC the setup process is very similar.
-Note that these instruction assume the [openHistorian](https://github.com/gridProtectionAlliance/openHistorian)  version X or greater is installed (or [openPDC](https://github.com/gridProtectionAlliance/openPDC) version X). In addition it is assumed Grafana version 6.5.0 or greater with the openHistorian [data-source plugin](https://grafana.com/grafana/plugins/gridprotectionalliance-openhistorian-datasource/installation) is installed (included in the openHistorian installation).
+Note that these instruction assume the [openHistorian](https://github.com/gridProtectionAlliance/openHistorian)  version `2.7.90` or greater is installed (or [openPDC](https://github.com/gridProtectionAlliance/openPDC) version `2.8.60`). In addition it is assumed Grafana version 6.5.0 or greater with the openHistorian [data-source plugin](https://grafana.com/grafana/plugins/gridprotectionalliance-openhistorian-datasource/installation) is installed (included in the openHistorian installation).
 
 ## Setup of the Action Adapter
 First the `Device Alarm State` action adapter has to be setup in the openHistorian. To do so start the openHistorian Manager and Click on *Manage Custom Actions* in the **Actions** tab
@@ -16,9 +16,11 @@ Next add a new action adapter by clicking on *Add New*
 
 ![openHistorian Manager Add New Adapter](./img/NewActionAdapter.PNG)
 
-The adapter should be of type `Device Alarm State` and the following settings are necesarry, the values are only suggested and can be changed. Additionally the setting listed [here](./Setting.md) can be adjusted to customize the device status.
+The adapter should be of type `Device Alarm State` and the following settings are necesarry, the values are only suggested and can be changed. Additionally the setting listed [here](./Settings.md) can be adjusted to customize the device status.
 * **Name**: AlarmPanelState
 * **TargetParentDevices**: True
+
+
 Note that the adapter also needs to be Enabled before saving it by clicking on *Save*
 
 ![openHistorian Manager Adapter Settings](./img/ActionAdapterSettings.PNG)

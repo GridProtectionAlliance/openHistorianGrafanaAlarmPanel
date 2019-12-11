@@ -35,8 +35,8 @@ SET PluginFile=.\src\plugin.json
 SET ZipDirectory=openHistorianGrafanaAlarmPanel
 SET ZipFile=AlarmPanelBinaries.zip
 SET BinarydestFolder=N:\GrafanaPanels\Binaries
-SET DocIMGFolder="..\docs\img"
-SET IMGFolder=".\src\images\"
+SET DocIMGFolder="..\docs\img\"
+SET IMGFolder=".\src\images\*"
 
 IF NOT "%1" == "" (SET logFile=%1)
 

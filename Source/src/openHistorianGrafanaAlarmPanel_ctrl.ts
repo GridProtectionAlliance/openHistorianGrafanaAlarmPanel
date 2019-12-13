@@ -44,6 +44,7 @@ export class OpenHistorianGrafanaAlarmPanel extends MetricsPanelCtrl{
 
         this.panel.link = (this.panel.link != undefined ? this.panel.link : '..');
 		this.panel.filter = (this.panel.filter != undefined ? this.panel.filter : '');
+		this.panel.showLegend = (this.panel.showLegend != undefined ? this.panel.showLegend : true);
     }
 
     // #region Events from Graphana Handlers

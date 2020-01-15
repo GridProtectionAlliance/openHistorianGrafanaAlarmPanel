@@ -135,6 +135,8 @@ Set-Location $projectDir
 #Comment while working on the build script
 Reset-Repository
 
+$changed = Test-RepositoryChanged
+
 if ($changed) {
     $changed = $false
 

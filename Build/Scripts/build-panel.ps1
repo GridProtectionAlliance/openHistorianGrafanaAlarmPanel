@@ -168,7 +168,7 @@ if ($changed) {
 	Install-NPM
 	Build-TS
 	Set-Location $projectDir
-	Deploy -target "$pojectDir\$repo" -source "$projectDir\Build\Output\$buildConfig\dist"  -name "$repo" -DeployZip "\\gpaweb\NightlyBuilds\GrafanaPanels" -DeployBinaries "\\gpaweb\NightlyBuilds\GrafanaPanels\Binaries\$repo"
+	Deploy -target "$projectDir\$repo" -source "$projectDir\Build\Output\$buildConfig\dist"  -name "$repo" -DeployZip "\\gpaweb\NightlyBuilds\GrafanaPanels" -DeployBinaries "\\gpaweb\NightlyBuilds\GrafanaPanels\Binaries\$repo"
 
 	#Commit
 	"Commit to remote repository"

@@ -104,13 +104,13 @@ function Build-TS {
 }
 
 function Deploy($target, $name, $source, $deployZip, $deployBinaries) {
-	new-item -Name "$target" -ItemType directory
-	"Copy $source to $target"
-	ROBOCOPY "$source\" "$target" /E /is
+	new-item -Path "$target" -Name "$name" -ItemType directory
+	"Copy $source to $target\$name"
+	ROBOCOPY "$source\" "$target\$name" /E /is
 	
 	"Compressing Binaries to $target"
-	Compress-Archive -Path "$target" -DestinationPath "$projectDir\$name.zip" -Force
-	Remove-Item –path "$target" –recurse
+	Compress-Archive -Path "$target\$name" -DestinationPath "$projectDir\$name.zip" -Force
+	Remove-Item –path "$target\$name" –recurse
 	
 	"Removing old deployed zip"
 	if (Test-Path "$deployZip\$name.zip") {
@@ -122,7 +122,7 @@ function Deploy($target, $name, $source, $deployZip, $deployBinaries) {
 	}
 	
 	"Deploy .Zip $deployZip"
-	ROBOCOPY "$projectDir\$name.zip" "$deployZip" /is /MOV
+	ROBOCOPY "$projectDir"  "$deployZip" "$name.zip" /is /MOV
 	
 	"Deploy Binaries to $deployBinaries" 
 	ROBOCOPY "$source\" "$deployBinaries" /E /is
@@ -168,7 +168,7 @@ if ($changed) {
 	Install-NPM
 	Build-TS
 	Set-Location $projectDir
-	Deploy -target "$projectDir\$repo" -source "$projectDir\Build\Output\$buildConfig\dist"  -name "$repo" -DeployZip "\\gpaweb\NightlyBuilds\GrafanaPanels" -DeployBinaries "\\gpaweb\NightlyBuilds\GrafanaPanels\Binaries\$repo"
+	Deploy -target "$projectDir" -source "$projectDir\Build\Output\$buildConfig\dist"  -name "$repo" -DeployZip "\\gpaweb\NightlyBuilds\GrafanaPanels" -DeployBinaries "\\gpaweb\NightlyBuilds\GrafanaPanels\Binaries\$repo"
 
 	#Commit
 	"Committing to remote repository"

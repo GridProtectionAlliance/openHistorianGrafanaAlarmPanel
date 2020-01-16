@@ -36,7 +36,7 @@ const conf = {
     new webpack.optimize.OccurrenceOrderPlugin(),
     new CopyWebpackPlugin([
       { from: 'plugin.json', to: '.' },
-	  { from: '../../README.md', to: '.' },
+	  { from: '../docs/README.md', to: '.' },
 	  { from: 'images/*', to: '.' },
 	  { from: 'partials/*', to: '.' },
     ])

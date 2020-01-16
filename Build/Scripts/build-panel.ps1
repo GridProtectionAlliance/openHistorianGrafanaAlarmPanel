@@ -171,7 +171,7 @@ if ($changed) {
 	Deploy -target "$projectDir\$repo" -source "$projectDir\Build\Output\$buildConfig\dist"  -name "$repo" -DeployZip "\\gpaweb\NightlyBuilds\GrafanaPanels" -DeployBinaries "\\gpaweb\NightlyBuilds\GrafanaPanels\Binaries\$repo"
 
 	#Commit
-	"Commit to remote repository"
+	"Committing to remote repository"
 	#Commit-Repository "." "Updated $repo version to $version"
 	
 	#Push-Repository

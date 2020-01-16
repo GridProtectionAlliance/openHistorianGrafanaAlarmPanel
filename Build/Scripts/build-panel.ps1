@@ -172,9 +172,9 @@ if ($changed) {
 
 	#Commit
 	"Committing to remote repository"
-	#Commit-Repository "." "Updated $repo version to $version"
+	Commit-Repository "." "Updated $repo version to $version"
 	
-	#Push-Repository
+	Push-Repository
 	
 	}
 	

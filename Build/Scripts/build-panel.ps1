@@ -122,7 +122,7 @@ function Deploy($target, $name, $source, $deployZip, $deployBinaries) {
 	}
 	
 	"Deploy .Zip $deployZip"
-	ROBOCOPY "$projectDir\$name.zip" "$deployZip" /E /is
+	ROBOCOPY "$projectDir\$name.zip" "$deployZip" /is /MOV
 	
 	"Deploy Binaries to $deployBinaries" 
 	ROBOCOPY "$source\" "$deployBinaries" /E /is

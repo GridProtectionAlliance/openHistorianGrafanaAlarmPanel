@@ -139,9 +139,6 @@ $changed = Test-RepositoryChanged
 
 if ($changed) {
     $changed = $false
-
-    # Tag repo to mark new changes
-    Tag-Repository $(get-date).ToString("yyyyMMddHHmmss")
 	
 	#Version The Repository
 	$version = "0.0.0"
@@ -176,6 +173,11 @@ if ($changed) {
 	
 	Push-Repository
 	
+	# Tag repo to mark new changes
+	$tag = $(get-date).ToString("yyyyMMddHHmmss")
+	"Tag Repository to $tag"
+	
+    Tag-Repository $tag
 	}
 	
 Set-Location $projectDir		

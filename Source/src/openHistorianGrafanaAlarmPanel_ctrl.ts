@@ -77,10 +77,20 @@ export class OpenHistorianGrafanaAlarmPanel extends MetricsPanelCtrl{
     onDataRecieved(data) {
         this.datasource.getAlarmStates().then(data => {
 			//console.log(data);
+
+            let filter = this.panel.filter
+            console.log(filter)
+            try {
+                filter = this.templateSrv.replace(this.panel.filter, this.panel.scopedVars, 'regex');
+            } catch (e) {
+                console.log('Alarm panel error: ', e);
+            }
+
+
 			let filterdata = data.data;
 			if (this.panel.filter !== "") {
 				let filtereddata: any[] = [];
-				let re = new RegExp(this.panel.filter);
+				let re = new RegExp(filter);
 				filterdata.forEach(item => {
 				if (re.test(item.Name))	{
 					filtereddata.push(item);

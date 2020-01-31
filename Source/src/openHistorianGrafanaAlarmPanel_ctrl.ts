@@ -79,7 +79,6 @@ export class OpenHistorianGrafanaAlarmPanel extends MetricsPanelCtrl{
 			//console.log(data);
 
             let filter = this.panel.filter
-            console.log(filter)
             try {
                 filter = this.templateSrv.replace(this.panel.filter, this.panel.scopedVars, 'regex');
             } catch (e) {

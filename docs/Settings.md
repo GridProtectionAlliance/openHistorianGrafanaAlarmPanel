@@ -13,7 +13,7 @@ For instance, if the PDC is running on a server `127.1.1.1` with the default por
 ![Settings Overview](./img/Settings.PNG)
 
 * **Device Name Filter**: This filterexpression is used to filter the devices shown on the panel. If the expression is left blank all devices are shown. The expression is based on [REGEX](https://regexr.com/) and is applied to the device names.
-For instance if only devices starting with `GPA- ` should be shown the expression would be `$GPA- `.
+For instance if only devices starting with `GPA- ` should be shown the expression would be `$GPA- `. Note that it is possible to use [Grafana Templating Variables](https://grafana.com/docs/grafana/latest/reference/templating/) in this Field.
 
 ### openPDC adapter Settings
 In addition to the Grafana panel there is a number of settings in the [openPDC Action Adapter](./Setup.md) that has to run on the associated openPDC to ensure the panel works.

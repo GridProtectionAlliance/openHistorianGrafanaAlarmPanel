@@ -45,6 +45,7 @@ export class OpenHistorianGrafanaAlarmPanel extends MetricsPanelCtrl{
         this.panel.link = (this.panel.link != undefined ? this.panel.link : '..');
 		this.panel.filter = (this.panel.filter != undefined ? this.panel.filter : '');
 		this.panel.showLegend = (this.panel.showLegend != undefined ? this.panel.showLegend : true);
+		this.panel.showAllStates = (this.panel.showAllStates != undefined ? this.panel.showAllStates : false);
     }
 
     // #region Events from Graphana Handlers
@@ -98,8 +99,16 @@ export class OpenHistorianGrafanaAlarmPanel extends MetricsPanelCtrl{
 				filterdata = filtereddata;
 			}
             this.$scope.data = filterdata;
-            this.$scope.colors = _.uniqBy(filterdata, 'State');
+			if (!this.panel.showAllStates)
+				this.$scope.colors = _.uniqBy(filterdata, 'State');
         })
+		
+		if (this.panel.showAllStates) {
+			this.datasource.getPossibleAlarmStates().then(data => {
+				this.$scope.colors = data.data
+				
+			})
+		}
         //console.log('data-recieved');
     }
 

@@ -197,7 +197,9 @@ export class OpenHistorianGrafanaAlarmPanel extends MetricsPanelCtrl{
 			})
 
 			this.panel.deviceGroups = updatedDeviceGroups;
-		})
+		}).catch(function(error) {
+			  console.log("Unable to get Device Groups from PDC");
+			});
 	}
 	
     handleClick(d) {

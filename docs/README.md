@@ -1,4 +1,6 @@
-﻿<div style="height:100px;">
+![Logo](https://gridprotectionalliance.org/images/products/productTitles75/NOCdashboard.png)
+
+<div style="height:100px;">
 <img align="left"  style="height:100px" src="./img/GPA.png" alt="Grid Protection Alliance">
 <img align="right" style="height:100px" src="./img/PAPanel.png" alt="Phasor Alarm Panel">
 </div>

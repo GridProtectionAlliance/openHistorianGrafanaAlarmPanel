@@ -4,6 +4,8 @@
 <img align="left"  style="height:100px" src="./img/GPA.png" alt="Grid Protection Alliance">
 <img align="right" style="height:100px" src="./img/PAPanel.png" alt="Phasor Alarm Panel">
 </div>
+
+
 # Overview
 
 This plugin is a Grana panel to show the status of all PMUs connected to the openHistorian.

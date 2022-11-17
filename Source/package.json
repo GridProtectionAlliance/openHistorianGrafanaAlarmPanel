@@ -19,7 +19,7 @@
     "clean-webpack-plugin": "^1.0.0",
     "copy-webpack-plugin": "^5.1.1",
     "grafana-sdk-mocks": "github:grafana/grafana-sdk-mocks",
-    "loader-utils": "^1.1.0",
+    "loader-utils": "^1.4.2",
     "ng-annotate-webpack-plugin": "^0.3.0",
     "ts-loader": "^5.3.0",
     "typescript": "^2.4.2",
